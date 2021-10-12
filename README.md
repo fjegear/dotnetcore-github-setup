@@ -6,7 +6,7 @@ All executed commands are collected here:
 
 ##Initial Setup
 
-- Move to the desired folder and create a folder for your repository.
+- Move to the desired parent folder where we are going to clone the repository.
 - Clone the repository: git clone https://github.com/fjegear/dotnetcore-github-setup.git
 - Create solution file: dotnet new sln --name DotnetCoreExample
 - Create folder for source code projects: mkdir src
