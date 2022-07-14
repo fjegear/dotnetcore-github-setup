@@ -1,11 +1,12 @@
 # dotnetcore-github-setup
 
-This repo is an example of creating a .NET 5 project with its setup using GitHub.
+This repo is an example of creating a .NET 6 project with its setup using GitHub.
 
 All executed commands are collected here:
 
-##Initial Setup
+## Initial Setup
 
+- Create new repository in github.
 - Move to the desired parent folder where we are going to clone the repository.
 - Clone the repository: git clone https://github.com/fjegear/dotnetcore-github-setup.git
 - Create solution file: dotnet new sln --name DotnetCoreExample
@@ -22,6 +23,21 @@ All executed commands are collected here:
 - Now if you install dotnet EF CLI, it will be added to the tool manifest: dotnet tool install dotnet-ef
 - A new collaborator would run 'dotnet tool restore' to install all needed tools
 
-##Configure projects files to use variables instead of fixed values
+## Configure projects files to use variables instead of fixed values
 
-- 
+- Create Directory.Build.props file in the repo root folder and reference file dependencies.props in the build folder.
+- Create file dependencies.props in the build folder and add the netcore app and netstandard versions as variables.
+- In the Directory.Build.props file metadata information can be included like Author, Company, LangVersion, ...
+- Replace all fixed values in projects with $(variableName).
+- Create Directory.Build.targets file and copy item groups from csproj files to this new file, change 'Include' word by 'Update' word.
+- In the original csproj file remove version property.
+
+- In the original csproj file you can add additional properties like PackageVersion or Description.
+
+## Configure for SourceLink and deterministics builds
+
+- SourceLink allows to debug the OSS library by using symbols .net technology.
+- To check if it is enabled, tool Nuget Package Explorer can be used and check whether SourceLink and Deterministic are enabled.
+- To enable it some metadata need to be added to the Directory.Build.props file. (see file).
+
+## Add script files to build the projects locally

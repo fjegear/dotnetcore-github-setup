@@ -1,0 +1,6 @@
+<Project>
+    <PropertyGroup>
+        <NetCoreAppVersion>net6.0</NetCoreAppVersion>
+        <NetStandardVersion>netstandard2.1</NetStandardVersion>
+    </PropertyGroup>
+</Project>

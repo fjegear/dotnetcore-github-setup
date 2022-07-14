@@ -1,8 +1,5 @@
-﻿using System;
-
-namespace MyLibrary
+﻿namespace MyLibrary;
+public class Class1
 {
-    public class Class1
-    {
-    }
+
 }
