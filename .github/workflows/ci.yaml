@@ -1,11 +1,11 @@
-name: MyLibray library Continuous Integration (master)
+name: MyLibray library Continuous Integration (main)
 on:
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
