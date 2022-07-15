@@ -1,0 +1,28 @@
+name: MyLibray library Continuous Integration (master)
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    env:
+      BUILD_CONFIG: Release
+      VERSION_SUFFIX: -preview${{ github.run_number }}
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.302
+    - name: dotnet build
+      run: dotnet build DotnetCoreExample.sln -c $BUILD_CONFIG
+    - name: dotnet test [UnitTests]
+      run: dotnet test ./tests/UnitTests.csproj -c $BUILD_CONFIG --no-build
+    - name: dotnet pack [MyLibrary]
+      run: dotnet pack ./src/MyLibrary/MyLibrary.csproj -c $BUILD_CONFIG --no-build --include-source --include-symbols --version-suffix $VERSION_SUFFIX

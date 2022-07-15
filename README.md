@@ -33,6 +33,7 @@ All executed commands are collected here:
 - In the original csproj file remove version property.
 
 - In the original csproj file you can add additional properties like PackageVersion or Description.
+- <PackageVersion>1.0.1$(VersionSuffix)</PackageVersion> to enable prerelease packager versions.
 
 ## Configure for SourceLink and deterministics builds
 
@@ -41,3 +42,11 @@ All executed commands are collected here:
 - To enable it some metadata need to be added to the Directory.Build.props file. (see file).
 
 ## Add script files to build the projects locally
+
+- Files build.ps1, dotnet-install.ps1 and install-sdk.ps1 can be added to automate the build and dotnet installations processes. Same with extension .sh for linux.
+
+## Continuous integrations with GitHub
+
+- GitHub workflows allows to setup different workflows for continuos integration. Different templates are available depending on the technology.
+- yaml files should be allocated in the .github\workflows folder.
+- Create ci.yaml file with the configuration for the workflow.

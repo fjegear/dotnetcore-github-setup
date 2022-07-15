@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>$(NetCoreAppVersion)</TargetFramework>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.1$(VersionSuffix)</PackageVersion>
     <Description>This is the library</Description>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
